@@ -1,12 +1,16 @@
 # 🦜🤖 LangManus
 
+> ⚠️ The original [LangManus](https://github.com/langmanus/langmanus) repository is no longer accessible.
+> I truly loved its elegant design, so this fork aims to keep the spirit of the project alive. Let’s keep this great work going!🚀
+------
+
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![WeChat](https://img.shields.io/badge/WeChat-Langmanus-brightgreen?logo=wechat&logoColor=white)](./assets/wechat_community.jpg)
 [![Discord Follow](https://dcbadge.vercel.app/api/server/m3MszDcn?style=flat)](https://discord.gg/m3MszDcn)
 
 [English](./README.md) | [简体中文](./README_zh.md) | [日本語](./README_ja.md)
-
+	
 > Come From Open Source, Back to Open Source
 
 LangManus is a community-driven AI automation framework that builds upon the incredible work of the open source community. Our goal is to combine language models with specialized tools for tasks like web search, crawling, and Python code execution, while giving back to the community that made this possible.
@@ -50,8 +54,8 @@ LangManus is a community-driven AI automation framework that builds upon the inc
 
 ```bash
 # Clone the repository
-git clone https://github.com/langmanus/langmanus.git
-cd langmanus
+git clone https://github.com/LangManus-KeepGoing/LangManus-KeepGoing.git
+cd LangManus-KeepGoing
 
 # Install dependencies, uv will take care of the python interpreter and venv creation
 uv sync
@@ -352,7 +356,7 @@ docker run --rm -it --env-file .env -e CHROME_HEADLESS=True langmanus uv run pyt
 
 LangManus provides a default web UI.
 
-Please refer to the [langmanus/langmanus-web-ui](https://github.com/langmanus/langmanus-web) project for more details.
+Please refer to the [LangManus-KeepGoing/LangManus-Web](https://github.com/LangManus-KeepGoing/LangManus-Web) project for more details.
 
 ## Docker Compose (include both backend and frontend)
 
