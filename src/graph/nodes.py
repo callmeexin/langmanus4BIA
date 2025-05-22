@@ -23,6 +23,8 @@ logger = logging.getLogger(__name__)
 RESPONSE_FORMAT = "Response from {}:\n\n<response>\n{}\n</response>\n\n*Please execute the next step.*"
 
 
+
+
 @tool
 def handoff_to_planner():
     """Handoff to planner agent to do plan."""
@@ -60,7 +62,7 @@ def code_node(state: State) -> Command[Literal["supervisor"]]:
     logger.info("Code agent completed task")
     response_content = result["messages"][-1].content
     # 尝试修复可能的JSON输出
-    response_content = repair_json_output(response_content)
+    #response_content = repair_json_output(response_content)
     logger.debug(f"Code agent response: {response_content}")
     return Command(
         update={
@@ -73,6 +75,29 @@ def code_node(state: State) -> Command[Literal["supervisor"]]:
         },
         goto="supervisor",
     )
+
+
+async def ghostcoder_node(state: State) -> Command[Literal["supervisor"]]:
+    """Node for the GhostCoder agent that generate and execute bioinformatics code in python, R and more."""
+    logger.info("GhostCoder agent starting task")
+    result = await ghostcoder_agent.ainvoke(state)
+    logger.info("GhostCoder agent completed task")
+    response_content = result["task_result"]
+    # 尝试修复可能的JSON输出
+    response_content = repair_json_output(response_content)
+    logger.debug(f"GhostCoder agent response: {response_content}")
+    return Command(
+        update={
+            "messages": [
+                HumanMessage(
+                    content=response_content,
+                    name="ghostcoder",
+                )
+            ]
+        },
+        goto="supervisor",
+    )
+
 
 
 def browser_node(state: State) -> Command[Literal["supervisor"]]:

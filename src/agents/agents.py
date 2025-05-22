@@ -12,6 +12,10 @@ from src.tools import (
 from src.llms.llm import get_llm_by_type
 from src.config.agents import AGENT_LLM_MAP
 
+# Use Ghostcoder
+sys.path.append(os.path.abspath('../../../BIA-Ghostcoder/'))
+from ghostcoder.graph import create_ghostcoder_agent
+
 
 # Create agents using configured LLM types
 def create_agent(agent_type: str, tools: list, prompt_template: str):
@@ -27,3 +31,10 @@ def create_agent(agent_type: str, tools: list, prompt_template: str):
 research_agent = create_agent("researcher", [tavily_tool, crawl_tool], "researcher")
 coder_agent = create_agent("coder", [python_repl_tool, bash_tool], "coder")
 browser_agent = create_agent("browser", [browser_tool], "browser")
+
+ghostcoder_agent = create_ghostcoder_agent(
+    chat_model = get_llm_by_type(AGENT_LLM_MAP["planner"]), # Reasoning model
+    code_model = get_llm_by_type(AGENT_LLM_MAP["coder"]), # Basic model
+    name = "GhostCoder",
+    max_retry = 3,
+)

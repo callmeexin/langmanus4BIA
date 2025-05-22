@@ -52,6 +52,16 @@ TEAM_MEMBER_CONFIGRATIONS = {
         ),
         "is_optional": True,
     },
+    #Add ghostcoder here 
+    "ghostcoder":{
+        "name": "ghostcoder",
+        "desc": "Responsible for code execution, debugging and optimization for bioinformatics analysis, handling bioinformatics analysis tasks and workflows.",
+        "desc_for_llm": (
+            "Generates and executes Python, R, and Bash etc. code, performs bioinformatics analysis workflow execution, and outputs the results of the execution. "
+            "Must be used for all bioinformatic analysis task and workflows."
+        ),
+        "is_optional": True,
+    },
     "browser": {
         "name": "browser",
         "desc": "Responsible for web browsing, content extraction and interaction",
