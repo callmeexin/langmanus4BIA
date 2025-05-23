@@ -10,6 +10,10 @@ import uuid
 
 from src.tools import browser_tool
 
+# Use Ghostcoder
+sys.path.append(os.path.abspath('../../../BIA-Ghostcoder/'))
+from ghostcoder.config import ghostcoder_config
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,  # Default level is INFO
@@ -74,6 +78,7 @@ async def run_agent_workflow(
     logger.info(f"Starting workflow with user input: {user_input_messages}")
 
     workflow_id = str(uuid.uuid4())
+    ghostcoder_config.TASK_ID = workflow_id
 
     team_members = team_members if team_members else TEAM_MEMBERS
 
