@@ -1,6 +1,6 @@
-# 🦜🤖 LangManus
+# 🦜🤖 BiaGhosterCoder
 
-> ⚠️ The original [LangManus](https://github.com/langmanus/langmanus) repository is no longer accessible.
+> ⚠️ The original [BiaGhosterCoder](https://github.com/langmanus/langmanus) repository is no longer accessible.
 > I truly loved its elegant design, so this fork aims to keep the spirit of the project alive. Let’s keep this great work going!🚀
 ------
 
@@ -13,13 +13,13 @@
 	
 > Come From Open Source, Back to Open Source
 
-LangManus is a community-driven AI automation framework that builds upon the incredible work of the open source community. Our goal is to combine language models with specialized tools for tasks like web search, crawling, and Python code execution, while giving back to the community that made this possible.
+BiaGhosterCoder is a community-driven AI automation framework that builds upon the incredible work of the open source community. Our goal is to combine language models with specialized tools for tasks like web search, crawling, and Python code execution, while giving back to the community that made this possible.
 
 ## Demo
 
 **Task**: Calculate the influence index of DeepSeek R1 on HuggingFace. This index can be designed using a weighted sum of factors such as followers, downloads, and likes.
 
-**LangManus's Fully Automated Plan and Solution**:
+**BiaGhosterCoder's Fully Automated Plan and Solution**:
 1. Gather the latest information about "DeepSeek R1", "HuggingFace", and related topics through online searches.
 2. Interact with a Chromium instance to visit the HuggingFace official website, search for "DeepSeek R1" and retrieve the latest data, including followers, likes, downloads, and other relevant metrics.
 3. Find formulas for calculating model influence using search engines and web scraping.
@@ -36,7 +36,7 @@ LangManus is a community-driven AI automation framework that builds upon the inc
 - [Project Statement](#project-statement)
 - [Architecture](#architecture)
 - [Features](#features)
-- [Why LangManus?](#why-langmanus)
+- [Why BiaGhosterCoder?](#why-langmanus)
 - [Setup](#setup)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
@@ -54,8 +54,8 @@ LangManus is a community-driven AI automation framework that builds upon the inc
 
 ```bash
 # Clone the repository
-git clone https://github.com/LangManus-KeepGoing/LangManus-KeepGoing.git
-cd LangManus-KeepGoing
+git clone https://github.com/BiaGhosterCoder-KeepGoing/BiaGhosterCoder-KeepGoing.git
+cd BiaGhosterCoder-KeepGoing
 
 # Install dependencies, uv will take care of the python interpreter and venv creation
 uv sync
@@ -96,9 +96,9 @@ This is an academically driven open-source project, developed by a group of form
 
 ## Architecture
 
-LangManus implements a hierarchical multi-agent system where a supervisor coordinates specialized agents to accomplish complex tasks:
+BiaGhosterCoder implements a hierarchical multi-agent system where a supervisor coordinates specialized agents to accomplish complex tasks:
 
-![LangManus Architecture](./assets/architecture.png)
+![BiaGhosterCoder Architecture](./assets/architecture.png)
 
 The system consists of the following agents working together:
 
@@ -141,7 +141,7 @@ The system consists of the following agents working together:
     - Multi-agent orchestration
     - Task delegation and monitoring
 
-## Why LangManus?
+## Why BiaGhosterCoder?
 
 We believe in the power of open source collaboration. This project wouldn't be possible without the amazing work of projects like:
 
@@ -161,7 +161,7 @@ We're committed to giving back to the community and welcome contributions of all
 
 ### Installation
 
-LangManus leverages [uv](https://github.com/astral-sh/uv) as its package manager to streamline dependency management.
+BiaGhosterCoder leverages [uv](https://github.com/astral-sh/uv) as its package manager to streamline dependency management.
 Follow the steps below to set up a virtual environment and install the necessary dependencies:
 
 ```bash
@@ -179,7 +179,7 @@ By completing these steps, you'll ensure your environment is properly configured
 
 ### Configuration
 
-LangManus uses a three-layer LLM system, which are respectively used for reasoning, basic tasks, and vision-language tasks. Configuration is done using the `conf.yaml` file in the root directory of the project. You can copy `conf.yaml.example` to `conf.yaml` to start the configuration:
+BiaGhosterCoder uses a three-layer LLM system, which are respectively used for reasoning, basic tasks, and vision-language tasks. Configuration is done using the `conf.yaml` file in the root directory of the project. You can copy `conf.yaml.example` to `conf.yaml` to start the configuration:
 ```bash
 cp conf.yaml.example conf.yaml
 ```
@@ -238,7 +238,7 @@ CHROME_PROXY_PASSWORD=  # Optional, the default is None
 
 ### Configure Pre-commit Hook
 
-LangManus includes a pre-commit hook that runs linting and formatting checks before each commit. To set it up:
+BiaGhosterCoder includes a pre-commit hook that runs linting and formatting checks before each commit. To set it up:
 
 1. Make the pre-commit script executable:
 
@@ -263,7 +263,7 @@ The pre-commit hook will automatically:
 
 ### Basic Execution
 
-To run LangManus with default settings:
+To run BiaGhosterCoder with default settings:
 
 ```bash
 uv run main.py
@@ -271,7 +271,7 @@ uv run main.py
 
 ### API Server
 
-LangManus provides a FastAPI-based API server with streaming support:
+BiaGhosterCoder provides a FastAPI-based API server with streaming support:
 
 ```bash
 # Start the API server
@@ -295,7 +295,7 @@ The API server exposes the following endpoints:
 
 ### Advanced Configuration
 
-LangManus can be customized through various configuration files in the `src/config` directory:
+BiaGhosterCoder can be customized through various configuration files in the `src/config` directory:
 
 - `env.py`: Configure LLM models, API keys, and base URLs
 - `tools.py`: Adjust tool-specific settings (e.g., Tavily search results limit)
@@ -303,7 +303,7 @@ LangManus can be customized through various configuration files in the `src/conf
 
 ### Agent Prompts System
 
-LangManus uses a sophisticated prompting system in the `src/prompts` directory to define agent behaviors and responsibilities:
+BiaGhosterCoder uses a sophisticated prompting system in the `src/prompts` directory to define agent behaviors and responsibilities:
 
 #### Core Agent Roles
 
@@ -336,7 +336,7 @@ Each agent's prompt is defined in a separate markdown file, making it easy to mo
 
 ## Docker
 
-LangManus can be run in a Docker container. default serve api on port 8000.
+BiaGhosterCoder can be run in a Docker container. default serve api on port 8000.
 
 Before run docker, you need to prepare environment variables in `.env` file.
 
@@ -354,13 +354,13 @@ docker run --rm -it --env-file .env -e CHROME_HEADLESS=True langmanus uv run pyt
 
 ## Web UI
 
-LangManus provides a default web UI.
+BiaGhosterCoder provides a default web UI.
 
-Please refer to the [LangManus-KeepGoing/LangManus-Web](https://github.com/LangManus-KeepGoing/LangManus-Web) project for more details.
+Please refer to the [BiaGhosterCoder-KeepGoing/BiaGhosterCoder-Web](https://github.com/BiaGhosterCoder-KeepGoing/BiaGhosterCoder-Web) project for more details.
 
 ## Docker Compose (include both backend and frontend)
 
-LangManus provides a docker-compose setup to easily run both the backend and frontend together:
+BiaGhosterCoder provides a docker-compose setup to easily run both the backend and frontend together:
 
 ```bash
 # Start both backend and frontend
@@ -371,8 +371,8 @@ docker-compose up -d
 ```
 
 This will:
-1. Build and start the LangManus backend container
-2. Build and start the LangManus web UI container
+1. Build and start the BiaGhosterCoder backend container
+2. Build and start the BiaGhosterCoder web UI container
 3. Connect them using a shared network
 
 ** Make sure you have your `.env` file prepared with the necessary API keys before starting the services. **
@@ -422,11 +422,11 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Acknowledgments
 
-Special thanks to all the open source projects and contributors that make LangManus possible. We stand on the shoulders of giants.
+Special thanks to all the open source projects and contributors that make BiaGhosterCoder possible. We stand on the shoulders of giants.
 
 In particular, we want to express our deep appreciation for:
 - [LangChain](https://github.com/langchain-ai/langchain) for their exceptional framework that powers our LLM interactions and chains
 - [LangGraph](https://github.com/langchain-ai/langgraph) for enabling our sophisticated multi-agent orchestration
 - [Browser-use](https://pypi.org/project/browser-use/) for control browser
 
-These amazing projects form the foundation of LangManus and demonstrate the power of open source collaboration.
+These amazing projects form the foundation of BiaGhosterCoder and demonstrate the power of open source collaboration.

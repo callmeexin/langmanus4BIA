@@ -9,6 +9,7 @@ from .nodes import (
     browser_node,
     reporter_node,
     planner_node,
+    ghostcoder_node,
 )
 
 
@@ -28,4 +29,5 @@ def build_graph():
     builder.add_node("coder", code_node)
     builder.add_node("browser", browser_node)
     builder.add_node("reporter", reporter_node)
+    builder.add_node("ghostcoder", ghostcoder_node)
     return builder.compile(checkpointer=memory)

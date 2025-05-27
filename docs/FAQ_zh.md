@@ -2,13 +2,13 @@
 
 ## 目录
 
-- [LangManus 支持哪些模型？](#langmanus-支持哪些模型)
+- [BiaGhosterCoder 支持哪些模型？](#langmanus-支持哪些模型)
 - [如何部署 Web UI 前端项目？](#如何部署-web-ui-前端项目)
 - [可以用本地的 Chrome 浏览器作为 Browser Tool 吗？](#可以用本地的-chrome-浏览器作为-browser-tool-吗)
 
-## LangManus 支持哪些模型？
+## BiaGhosterCoder 支持哪些模型？
 
-在 LangManus 中，我们将模型分为以下三类：
+在 BiaGhosterCoder 中，我们将模型分为以下三类：
 
 ### 1. **Chat Model**（聊天模型）
 - **用途**：用于对话场景，主要在 **Supervisor** 和 **Agent** 中被调用。
@@ -30,7 +30,7 @@
 
 ### 如何使用 OpenAI-Compatible 模型？
 
-LangManus 支持集成 OpenAI-Compatible 模型，这些模型实现了 OpenAI API 规范。这包括各种提供与 OpenAI 格式兼容的 API 端点的开源和商业模型。您可以参考 [litellm OpenAI-Compatible](https://docs.litellm.ai/docs/providers/openai_compatible) 获取详细文档。
+BiaGhosterCoder 支持集成 OpenAI-Compatible 模型，这些模型实现了 OpenAI API 规范。这包括各种提供与 OpenAI 格式兼容的 API 端点的开源和商业模型。您可以参考 [litellm OpenAI-Compatible](https://docs.litellm.ai/docs/providers/openai_compatible) 获取详细文档。
 以下是使用 OpenAI-Compatible 模型的 `conf.yaml` 配置示例：
 
 ```yaml
@@ -55,7 +55,7 @@ BASIC_MODEL:
 
 ### 如何使用 Ollama 模型？
 
-LangManus 支持集成 Ollama 模型。您可以参考[litellm Ollama](https://docs.litellm.ai/docs/providers/ollama)。<br>
+BiaGhosterCoder 支持集成 Ollama 模型。您可以参考[litellm Ollama](https://docs.litellm.ai/docs/providers/ollama)。<br>
 以下是使用 Ollama 模型的conf.yaml配置示例：
 
 ```yaml
@@ -66,7 +66,7 @@ REASONING_MODEL:
 
 ### 如何使用 OpenRouter 模型？
 
-LangManus 支持集成 OpenRouter 模型。你可以参考[litellm OpenRouter](https://docs.litellm.ai/docs/providers/openrouter)，要使用OpenRouter模型，您需要:
+BiaGhosterCoder 支持集成 OpenRouter 模型。你可以参考[litellm OpenRouter](https://docs.litellm.ai/docs/providers/openrouter)，要使用OpenRouter模型，您需要:
 1. 从 OpenRouter 获取 OPENROUTER_API_KEY (https://openrouter.ai/) 并设置到环境变量中
 2. 在模型名称前添加 `openrouter/` 前缀
 3. 配置正确的 OpenRouter 基础 URL
@@ -86,7 +86,7 @@ REASONING_MODEL:
 
 ### 如何使用 Google Gemini 模型？
 
-LangManus 支持集成 Google 的 Gemini 模型。您可以参考[litellm Gemini](https://docs.litellm.ai/docs/providers/gemini)，要使用 Gemini 模型，请按照以下步骤操作：
+BiaGhosterCoder 支持集成 Google 的 Gemini 模型。您可以参考[litellm Gemini](https://docs.litellm.ai/docs/providers/gemini)，要使用 Gemini 模型，请按照以下步骤操作：
 
 1. 从 Google AI Studio 获取 Gemini API 密钥 (https://makersuite.google.com/app/apikey)
 2. 在环境变量（比如.env文件）中配置Gemini API 密钥
@@ -101,12 +101,12 @@ REASONING_MODEL:
 
 注意事项：
 - 将 `YOUR_GEMINI_KEY` 替换为你实际的 Gemini API 密钥
-- 基础 URL 专门配置为通过 LangManus 的 OpenAI 兼容接口使用 Gemini
+- 基础 URL 专门配置为通过 BiaGhosterCoder 的 OpenAI 兼容接口使用 Gemini
 - 可用模型包括用于聊天和视觉任务的 `gemini-2.0-flash`
 
 ### 如何使用 Azure 模型？
 
-LangManus 支持集成 Azure 的模型。您可以参考[litellm Azure](https://docs.litellm.ai/docs/providers/azure)。conf.yaml配置示例：
+BiaGhosterCoder 支持集成 Azure 的模型。您可以参考[litellm Azure](https://docs.litellm.ai/docs/providers/azure)。conf.yaml配置示例：
 ```yaml
 REASONING_MODEL:
   model: "azure/gpt-4o-2024-08-06"
@@ -119,24 +119,24 @@ REASONING_MODEL:
 
 ## 如何部署 Web UI 前端项目？
 
-LangManus 提供了一个开箱即用的 Web UI 前端项目，您可以通过以下步骤完成部署。请访问 [LangManus Web UI GitHub 仓库](https://github.com/langmanus/langmanus-web) 获取更多信息。
+BiaGhosterCoder 提供了一个开箱即用的 Web UI 前端项目，您可以通过以下步骤完成部署。请访问 [BiaGhosterCoder Web UI GitHub 仓库](https://github.com/langmanus/langmanus-web) 获取更多信息。
 
-### 步骤 1：启动 LangManus 的后端服务
+### 步骤 1：启动 BiaGhosterCoder 的后端服务
 
-首先，确保您已经克隆并安装了 LangManus 的后端项目。进入后端项目目录并启动服务：
+首先，确保您已经克隆并安装了 BiaGhosterCoder 的后端项目。进入后端项目目录并启动服务：
 
 ```bash
 cd langmanus
 make serve
 ```
 
-默认情况下，LangManus 后端服务会运行在 `http://localhost:8000`。
+默认情况下，BiaGhosterCoder 后端服务会运行在 `http://localhost:8000`。
 
 ---
 
 ### 步骤 2：安装 Web UI 前端项目及其依赖
 
-接下来，克隆 LangManus 的 Web UI 前端项目并安装依赖：
+接下来，克隆 BiaGhosterCoder 的 Web UI 前端项目并安装依赖：
 
 ```bash
 git clone https://github.com/langmanus/langmanus-web.git
@@ -159,13 +159,13 @@ pnpm install
 pnpm dev
 ```
 
-默认情况下，LangManus 的 Web UI 服务会运行在 `http://localhost:3000`。
+默认情况下，BiaGhosterCoder 的 Web UI 服务会运行在 `http://localhost:3000`。
 
 ---
 
 ## Browser Tool 无法正常启动？
 
-LangManus 使用 [`browser-use`](https://github.com/browser-use/browser-use) 来实现浏览器相关功能，而 `browser-use` 是基于 [`Playwright`](https://playwright.dev/python) 构建的。因此，在首次使用前，需要安装 `Playwright` 的浏览器实例。
+BiaGhosterCoder 使用 [`browser-use`](https://github.com/browser-use/browser-use) 来实现浏览器相关功能，而 `browser-use` 是基于 [`Playwright`](https://playwright.dev/python) 构建的。因此，在首次使用前，需要安装 `Playwright` 的浏览器实例。
 
 ```bash
 uv run playwright install
@@ -175,7 +175,7 @@ uv run playwright install
 
 ## 可以用本地的 Chrome 浏览器作为 Browser Tool 吗？
 
-是的，LangManus 支持使用本地的 Chrome 浏览器作为 Browser Tool。LangManus 使用 [`browser-use`](https://github.com/browser-use/browser-use) 来实现浏览器相关功能，而 `browser-use` 是基于 [`Playwright`](https://playwright.dev/python) 实现的。通过配置 `.env` 文件中的 `CHROME_INSTANCE_PATH`，你可以指定本地 Chrome 浏览器的路径，从而实现使用本地浏览器实例的功能。
+是的，BiaGhosterCoder 支持使用本地的 Chrome 浏览器作为 Browser Tool。BiaGhosterCoder 使用 [`browser-use`](https://github.com/browser-use/browser-use) 来实现浏览器相关功能，而 `browser-use` 是基于 [`Playwright`](https://playwright.dev/python) 实现的。通过配置 `.env` 文件中的 `CHROME_INSTANCE_PATH`，你可以指定本地 Chrome 浏览器的路径，从而实现使用本地浏览器实例的功能。
 
 ### 配置步骤
 
@@ -192,8 +192,8 @@ uv run playwright install
    - Windows: `C:\Program Files\Google\Chrome\Application\chrome.exe`
    - Linux: `/usr/bin/google-chrome`
 
-3. **启动 LangManus**
-   启动 LangManus 后，`browser-use` 将使用你指定的本地 Chrome 浏览器实例。
+3. **启动 BiaGhosterCoder**
+   启动 BiaGhosterCoder 后，`browser-use` 将使用你指定的本地 Chrome 浏览器实例。
 
-4. **访问 LangManus 的 Web UI**
-   由于本地 Chrome 浏览器被 `browser-use` 占用，你需要使用其他浏览器（如 Safari、Mozilla Firefox）访问 LangManus 的 Web 界面，地址通常为 `http://localhost:3000`。或者，你也可以从另一台计算机上访问 LangManus 的 Web UI。
+4. **访问 BiaGhosterCoder 的 Web UI**
+   由于本地 Chrome 浏览器被 `browser-use` 占用，你需要使用其他浏览器（如 Safari、Mozilla Firefox）访问 BiaGhosterCoder 的 Web 界面，地址通常为 `http://localhost:3000`。或者，你也可以从另一台计算机上访问 BiaGhosterCoder 的 Web UI。

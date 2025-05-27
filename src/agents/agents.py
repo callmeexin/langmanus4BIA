@@ -1,5 +1,8 @@
+from ghostcoder.graph import create_ghostcoder_agent
 from langgraph.prebuilt import create_react_agent
 
+from src.config.agents import AGENT_LLM_MAP
+from src.llms.llm import get_llm_by_type
 from src.prompts import apply_prompt_template
 from src.tools import (
     bash_tool,
@@ -8,13 +11,6 @@ from src.tools import (
     python_repl_tool,
     tavily_tool,
 )
-
-from src.llms.llm import get_llm_by_type
-from src.config.agents import AGENT_LLM_MAP
-
-# Use Ghostcoder
-sys.path.append(os.path.abspath('../../../BIA-Ghostcoder/'))
-from ghostcoder.graph import create_ghostcoder_agent
 
 
 # Create agents using configured LLM types

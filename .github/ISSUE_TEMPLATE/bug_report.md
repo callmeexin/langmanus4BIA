@@ -1,12 +1,12 @@
 ---
 name: Bug Report
-about: Report a bug to help us improve LangManus
+about: Report a bug to help us improve BiaGhosterCoder
 title: ''
 labels: bug
 
 ---
 
-Thank you for your support and contribution to LangManus!
+Thank you for your support and contribution to BiaGhosterCoder!
 
 **Describe the Bug**
 A clear and concise description of the issue.

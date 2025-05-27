@@ -27,10 +27,7 @@ def bash_tool(
         return result.stdout
     except subprocess.CalledProcessError as e:
         # If command fails, return error information
-        error_message = f"Command failed with exit code {
-            e.returncode}.\nStdout: {
-            e.stdout}\nStderr: {
-            e.stderr}"
+        error_message = f"Command failed with exit code {e.returncode}.\nStdout: {e.stdout}\nStderr: {e.stderr}"
         logger.error(error_message)
         return error_message
     except subprocess.TimeoutExpired:

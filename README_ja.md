@@ -1,4 +1,4 @@
-# 🦜🤖 LangManus
+# 🦜🤖 BiaGhosterCoder
 
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -75,7 +75,7 @@ uv run main.py
 
 LangManusは、スーパーバイザーが専門のエージェントを調整して複雑なタスクを達成する階層型マルチエージェントシステムを実装しています。
 
-![LangManus Architecture](./assets/architecture.png)
+![BiaGhosterCoder Architecture](./assets/architecture.png)
 
 システムは、次のエージェントが協力して動作します。
 
@@ -350,7 +350,7 @@ docker-compose up -d
 
 これにより：
 1. LangManusバックエンドコンテナをビルドして起動
-2. LangManus Web UIコンテナをビルドして起動
+2. BiaGhosterCoder Web UIコンテナをビルドして起動
 3. 共有ネットワークを使用してそれらを接続
 
 サービスを開始する前に、必要なAPIキーを含む`.env`ファイルが準備されていることを確認してください。

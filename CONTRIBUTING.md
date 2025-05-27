@@ -1,10 +1,10 @@
-# Contributing to LangManus
+# Contributing to BiaGhosterCoder
 
-Thank you for your interest in contributing to LangManus! We welcome contributions of all kinds from the community.
+Thank you for your interest in contributing to BiaGhosterCoder! We welcome contributions of all kinds from the community.
 
 ## Ways to Contribute
 
-There are many ways you can contribute to LangManus:
+There are many ways you can contribute to BiaGhosterCoder:
 
 - **Code Contributions**: Add new features, fix bugs, or improve performance
 - **Documentation**: Improve README, add code comments, or create examples
@@ -97,4 +97,4 @@ If you need help with anything:
 - Join our community channels
 - Ask questions in discussions
 
-We appreciate your contributions to making LangManus better!
+We appreciate your contributions to making BiaGhosterCoder better!

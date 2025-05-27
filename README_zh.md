@@ -1,4 +1,4 @@
-# 🦜🤖 LangManus
+# 🦜🤖 BiaGhosterCoder
 
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -9,7 +9,7 @@
 
 > 源于开源，回馈开源
 
-LangManus 是一个社区驱动的 AI 自动化框架，它建立在开源社区的卓越工作基础之上。我们的目标是将语言模型与专业工具（如网络搜索、爬虫和 Python 代码执行）相结合，同时回馈让这一切成为可能的社区。
+BiaGhosterCoder 是一个社区驱动的 AI 自动化框架，它建立在开源社区的卓越工作基础之上。我们的目标是将语言模型与专业工具（如网络搜索、爬虫和 Python 代码执行）相结合，同时回馈让这一切成为可能的社区。
 
 ## 演示视频
 
@@ -36,7 +36,7 @@ LangManus 是一个社区驱动的 AI 自动化框架，它建立在开源社区
 
 - [在 YouTube 上观看](https://youtu.be/sZCHqrQBUGk)
 - 中文自媒体报道
-    - 01Coder - Manus 开源平替 - LangManus（LangChain力荐）
+    - 01Coder - Manus 开源平替 - BiaGhosterCoder（LangChain力荐）
         - [YouTube](https://www.youtube.com/watch?v=XzCmPOfd0D0&lc=UgyNFuKmya8R6rVm_l94AaABAg&ab_channel=01Coder)
         - [B站](https://www.bilibili.com/video/BV1SeXqYfEop/)
 
@@ -46,7 +46,7 @@ LangManus 是一个社区驱动的 AI 自动化框架，它建立在开源社区
 - [项目声明](#项目声明)
 - [架构](#架构)
 - [功能特性](#功能特性)
-- [为什么选择 LangManus？](#为什么选择-langmanus)
+- [为什么选择 BiaGhosterCoder？](#为什么选择-langmanus)
 - [安装设置](#安装设置)
     - [前置要求](#前置要求)
     - [安装步骤](#安装步骤)
@@ -94,9 +94,9 @@ uv run main.py
 
 ## 架构
 
-LangManus 实现了一个分层的多智能体系统，其中有一个主管智能体协调专门的智能体来完成复杂任务：
+BiaGhosterCoder 实现了一个分层的多智能体系统，其中有一个主管智能体协调专门的智能体来完成复杂任务：
 
-![LangManus 架构](./assets/architecture.png)
+![BiaGhosterCoder 架构](./assets/architecture.png)
 
 系统由以下智能体协同工作：
 
@@ -139,7 +139,7 @@ LangManus 实现了一个分层的多智能体系统，其中有一个主管智�
     - 多智能体编排
     - 任务分配和监控
 
-## 为什么选择 LangManus？
+## 为什么选择 BiaGhosterCoder？
 
 我们信奉开源协作的力量。本项目的实现离不开以下优秀项目的支持：
 
@@ -161,7 +161,7 @@ LangManus 实现了一个分层的多智能体系统，其中有一个主管智�
 
 ### 安装步骤
 
-LangManus 使用 [uv](https://github.com/astral-sh/uv) 作为包管理器以简化依赖管理。
+BiaGhosterCoder 使用 [uv](https://github.com/astral-sh/uv) 作为包管理器以简化依赖管理。
 按照以下步骤设置虚拟环境并安装必要的依赖：
 
 ```bash
@@ -181,7 +181,7 @@ uv sync
 
 ### 配置
 
-LangManus 使用三层 LLM 系统，分别用于推理、基础任务和视觉语言任务，使用项目根目录下conf.yaml进行配置，您可以复制`conf.yaml.example`到`conf.yaml`开始配置：
+BiaGhosterCoder 使用三层 LLM 系统，分别用于推理、基础任务和视觉语言任务，使用项目根目录下conf.yaml进行配置，您可以复制`conf.yaml.example`到`conf.yaml`开始配置：
 ```bash
 cp conf.yaml.example conf.yaml
 ```
@@ -241,7 +241,7 @@ CHROME_PROXY_PASSWORD=  # 可选，默认是 None
 
 ### 配置预提交钩子
 
-LangManus 包含一个预提交钩子，在每次提交前运行代码检查和格式化。设置步骤：
+BiaGhosterCoder 包含一个预提交钩子，在每次提交前运行代码检查和格式化。设置步骤：
 
 1. 使预提交脚本可执行：
 
@@ -266,7 +266,7 @@ ln -s ../../pre-commit .git/hooks/pre-commit
 
 ### 基本执行
 
-使用默认设置运行 LangManus：
+使用默认设置运行 BiaGhosterCoder：
 
 ```bash
 uv run main.py
@@ -274,7 +274,7 @@ uv run main.py
 
 ### API 服务器
 
-LangManus 提供基于 FastAPI 的 API 服务器，支持流式响应：
+BiaGhosterCoder 提供基于 FastAPI 的 API 服务器，支持流式响应：
 
 ```bash
 # 启动 API 服务器
@@ -298,7 +298,7 @@ API 服务器提供以下端点：
 
 ### 高级配置
 
-LangManus 可以通过 `src/config` 目录中的各种配置文件进行自定义：
+BiaGhosterCoder 可以通过 `src/config` 目录中的各种配置文件进行自定义：
 
 - `env.py`：配置 LLM 模型、API 密钥和基础 URL
 - `tools.py`：调整工具特定设置（如 Tavily 搜索结果限制）
@@ -306,7 +306,7 @@ LangManus 可以通过 `src/config` 目录中的各种配置文件进行自定�
 
 ### 智能体提示系统
 
-LangManus 在 `src/prompts` 目录中使用复杂的提示系统来定义智能体的行为和职责：
+BiaGhosterCoder 在 `src/prompts` 目录中使用复杂的提示系统来定义智能体的行为和职责：
 
 #### 核心智能体角色
 
@@ -339,7 +339,7 @@ LangManus 在 `src/prompts` 目录中使用复杂的提示系统来定义智能�
 
 ## Docker
 
-LangManus 可以运行在 Docker 容器中。默认情况下，API 服务器在端口 8000 上运行。
+BiaGhosterCoder 可以运行在 Docker 容器中。默认情况下，API 服务器在端口 8000 上运行。
 
 ```bash
 docker build -t langmanus .
@@ -355,13 +355,13 @@ docker run --rm -it --env-file .env -e CHROME_HEADLESS=True langmanus uv run pyt
 
 ## 网页界面
 
-LangManus 提供一个默认的网页界面。
+BiaGhosterCoder 提供一个默认的网页界面。
 
 请参考 [langmanus/langmanus-web](https://github.com/langmanus/langmanus-web) 项目了解更多信息。
 
 ## Docker Compose (包括前后端)
 
-LangManus 提供了 docker-compose 设置，可以轻松地同时运行后端和前端：
+BiaGhosterCoder 提供了 docker-compose 设置，可以轻松地同时运行后端和前端：
 
 ```bash
 # 启动后端和前端
@@ -372,8 +372,8 @@ docker-compose up -d
 ```
 
 这将：
-1. 构建并启动 LangManus 后端容器
-2. 构建并启动 LangManus Web UI 容器
+1. 构建并启动 BiaGhosterCoder 后端容器
+2. 构建并启动 BiaGhosterCoder Web UI 容器
 3. 使用共享网络连接它们
 
 在启动服务之前，请确保已准备好包含必要 API 密钥的 `.env` 文件。
@@ -423,11 +423,11 @@ make format
 
 ## 致谢
 
-特别感谢所有让 LangManus 成为可能的开源项目和贡献者。我们站在巨人的肩膀上。
+特别感谢所有让 BiaGhosterCoder 成为可能的开源项目和贡献者。我们站在巨人的肩膀上。
 
 我们特别要感谢以下项目：
 - [LangChain](https://github.com/langchain-ai/langchain)：为我们提供了出色的框架，支撑着我们的 LLM 交互和链式操作
 - [LangGraph](https://github.com/langchain-ai/langgraph)：为我们的复杂多智能体编排提供支持
 - [Browser-use](https://pypi.org/project/browser-use/)：提供浏览器控制能力
 
-这些优秀的项目构成了 LangManus 的基石，展现了开源协作的力量。
+这些优秀的项目构成了 BiaGhosterCoder 的基石，展现了开源协作的力量。

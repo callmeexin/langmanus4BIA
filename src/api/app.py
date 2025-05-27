@@ -1,34 +1,43 @@
 """
-FastAPI application for LangManus.
+FastAPI application for BiaGhosterCoder.
 """
 
+import asyncio
 import json
 import logging
 import os
-from typing import Dict, List, Any, Optional, Union
+import os.path
+from pathlib import Path
+from typing import List
 
-from fastapi import FastAPI, HTTPException, Request
+
+from src.config.config import DEFAULT_STORAGE
+from src.database import SessionLocal, engine
+from src.entity.entity import FileMetadata as DBFileMetadata
+from src.schema.schemas import HttpResponse, ChatRequest
+from src.utils.file_utils import save_file, get_file_path, delete_file_async, list_files_in_task
+from fastapi import HTTPException, Request
+from fastapi import UploadFile, File, BackgroundTasks, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
-from pydantic import BaseModel, Field
-from sse_starlette.sse import EventSourceResponse
-import asyncio
-from typing import AsyncGenerator, Dict, List, Any
+from fastapi_offline import FastAPIOffline
 
+from sse_starlette.sse import EventSourceResponse
+
+from src.config import TEAM_MEMBER_CONFIGRATIONS, BROWSER_HISTORY_DIR
 from src.graph import build_graph
-from src.config import TEAM_MEMBERS, TEAM_MEMBER_CONFIGRATIONS, BROWSER_HISTORY_DIR
 from src.service.workflow_service import run_agent_workflow
 
 # Configure logging
 logger = logging.getLogger(__name__)
 
 # Create FastAPI app
-app = FastAPI(
-    title="LangManus API",
-    description="API for LangManus LangGraph-based agent workflow",
+app = FastAPIOffline(
+    root_path="/api",
+    title="BiaGhosterCoder API",
+    description="API for BiaGhosterCoder LangGraph-based agent workflow",
     version="0.1.0",
 )
-
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
@@ -38,44 +47,210 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
+# Create database tables
+DBFileMetadata.metadata.create_all(bind=engine)
+
+@app.post("/upload/")
+async def upload_files(
+        session_id: str = Form(),
+        files: List[UploadFile] = File(...),
+        storage_path: str = str(DEFAULT_STORAGE)
+):
+    """Upload multiple files and store their metadata in database.
+
+    Args:
+        session_id: ID of the current session
+        files: List of files to upload
+        storage_path: Path to store the files (defaults to DEFAULT_STORAGE)
+
+    Returns:
+        List of FileUploadResponse containing file IDs and metadata
+    """
+    results = []
+    db = SessionLocal()
+
+    try:
+        for file in files:
+            # Save file
+            file_info = await save_file(session_id, file, Path(storage_path))
+
+            # Save metadata to database
+            db_file = DBFileMetadata(
+                session_id=session_id,
+                name=file.filename,
+                path=file_info["path"],
+                size=file_info["size"]
+            )
+            db.add(db_file)
+            db.commit()
+            db.refresh(db_file)
+
+            results.append(db_file.path)
+
+        return HttpResponse.success(results)
+    finally:
+        db.close()
+
+@app.get("/files/{session_id}/{task_id}")
+def get_files_by_task_id(session_id: str, task_id: str):
+    """List all files associated with a specific task.
+
+    Args:
+        session_id: ID of the current session
+        task_id: ID of the task to list files for
+
+    Returns:
+        FileListResponse containing list of files
+    """
+    session_id = "session_id"
+    task_id = "task_id"
+    result = list_files_in_task(session_id, task_id)
+    return HttpResponse.success(result)
+
+@app.get("/download/")
+def download_file(session_id: str, task_id: str, filename: str):
+    """Download a specific file by its filename.
+
+    Args:
+        session_id: ID of the current session
+        task_id: ID of the associated task
+        filename: Name of the file to download
+
+    Returns:
+        FileResponse for downloading the file
+
+    Raises:
+        HTTPException: 404 if file not found
+    """
+    session_id = "session_id"
+    task_id = "task_id"
+    file_path = get_file_path(session_id, task_id, filename)
+    if not file_path:
+        raise HTTPException(status_code=404, detail="File not found")
+
+    return FileResponse(
+        file_path,
+        filename=filename,
+        media_type="application/octet-stream"
+    )
+
+@app.get("/content/")
+def get_file_content(session_id: str, task_id: str, filename: str):
+    """Get the content of a text file as string.
+
+    Args:
+        session_id: ID of the current session
+        task_id: ID of the associated task
+        filename: Name of the file to read
+
+    Returns:
+        FileContentResponse containing file content
+
+    Raises:
+        HTTPException: 404 if file not found, 400 if read error
+    """
+    file_path = get_file_path(session_id, task_id, filename)
+    if not file_path:
+        raise HTTPException(status_code=404, detail="File not found")
+
+    try:
+        with open(file_path, "r") as f:
+            content = f.read()
+        return HttpResponse.success({"content": content})
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Error reading file: {str(e)}")
+
+@app.delete("/delete/")
+def delete_file(
+        background_tasks: BackgroundTasks,
+        session_id: str,
+        task_id: str,
+        filename: str,
+        file_id: int
+):
+    """Delete a file and its metadata (async operation).
+
+    Args:
+        background_tasks: FastAPI background tasks handler
+        session_id: ID of the current session
+        task_id: ID of the associated task
+        filename: Name of the file to delete
+        file_id: Database ID of the file metadata
+
+    Returns:
+        dict: Message confirming deletion scheduling
+
+    Raises:
+        HTTPException: 404 if file or metadata not found
+    """
+    file_path = get_file_path(session_id, task_id, filename)
+    if not file_path:
+        raise HTTPException(status_code=404, detail="File not found")
+
+    # Delete record from database
+    db = SessionLocal()
+    db_file = db.query(DBFileMetadata).filter(DBFileMetadata.id == file_id).first()
+    if not db_file:
+        db.close()
+        raise HTTPException(status_code=404, detail="File metadata not found")
+
+    db.delete(db_file)
+    db.commit()
+    db.close()
+
+    # Async file deletion
+    background_tasks.add_task(delete_file_async, file_path)
+
+    return {"message": "File deletion scheduled"}
+
+@app.get("/image/")
+async def get_image(img_path: str) -> FileResponse:
+    """Retrieve an image file by its relative path.
+
+    Fetches and returns an image file from the default storage directory based on the provided relative path.
+    The image can be directly previewed in browsers or used by frontend applications.
+
+    Args:
+        img_path (str): Relative path to the image from the default storage directory.
+                       Example: 'products/123.jpg' or 'users/avatar.png'
+
+    Returns:
+        FileResponse: FastAPI FileResponse object that streams the image file with proper
+                     content-type headers for browser preview.
+
+    Raises:
+        HTTPException 400: If the path is invalid or contains directory traversal attempts
+        HTTPException 404: If the requested image doesn't exist
+
+    Examples:
+        Example request:
+        ```http
+        GET /image/?img_path=products/123.jpg
+        ```
+
+        Example response:
+        ```http
+        HTTP/1.1 200 OK
+        Content-Type: image/jpeg
+        [image binary data]
+        ```
+    """
+    # Security check: prevent directory traversal attacks
+    if not img_path or '../' in img_path:
+        raise HTTPException(status_code=400, detail="Invalid image path")
+
+    image_abs_path = os.path.join(str(DEFAULT_STORAGE), img_path)
+
+    # Verify file exists
+    if not os.path.isfile(image_abs_path):
+        raise HTTPException(status_code=404, detail="Image not found")
+
+    return FileResponse(image_abs_path)
 # Create the graph
 graph = build_graph()
 
 
-class ContentItem(BaseModel):
-    type: str = Field(..., description="The type of content (text, image, etc.)")
-    text: Optional[str] = Field(None, description="The text content if type is 'text'")
-    image_url: Optional[str] = Field(
-        None, description="The image URL if type is 'image'"
-    )
-
-
-class ChatMessage(BaseModel):
-    role: str = Field(
-        ..., description="The role of the message sender (user or assistant)"
-    )
-    content: Union[str, List[ContentItem]] = Field(
-        ...,
-        description="The content of the message, either a string or a list of content items",
-    )
-
-
-class ChatRequest(BaseModel):
-    messages: List[ChatMessage] = Field(..., description="The user input")
-    debug: Optional[bool] = Field(False, description="Whether to enable debug logging")
-    deep_thinking_mode: Optional[bool] = Field(
-        False, description="Whether to enable deep thinking mode"
-    )
-    search_before_planning: Optional[bool] = Field(
-        False, description="Whether to search before planning"
-    )
-    team_members: Optional[list] = Field(None, description="enabled team members")
-    thread_id: Optional[str] = Field(
-        "default", description="a specifc conversation identifier"
-    )
-
-
-@app.post("/api/chat/stream")
+@app.post("/chat/stream")
 async def chat_endpoint(request: ChatRequest, req: Request):
     """
     Chat endpoint for LangGraph invoke.
@@ -183,3 +358,5 @@ async def get_team_members():
     except Exception as e:
         logger.error(f"Error getting team members: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+

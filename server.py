@@ -1,10 +1,12 @@
 """
-Server script for running the LangManus API.
+Server script for running the BiaGhosterCoder API.
 """
 
 import logging
 import uvicorn
 import sys
+
+from src.utils.path_utils import find_and_add_target_path
 
 # Configure logging
 logging.basicConfig(
@@ -14,9 +16,12 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
+find_and_add_target_path()
+logger.info(sys.path)
+
 if __name__ == "__main__":
-    logger.info("Starting LangManus API server")
-    reload = True
+    logger.info("Starting BiaGhosterCoder API server")
+    reload = False
     if sys.platform.startswith("win"):
         reload = False
     uvicorn.run(

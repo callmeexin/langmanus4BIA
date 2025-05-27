@@ -11,7 +11,6 @@ import uuid
 from src.tools import browser_tool
 
 # Use Ghostcoder
-sys.path.append(os.path.abspath('../../../BIA-Ghostcoder/'))
 from ghostcoder.config import ghostcoder_config
 
 # Configure logging
