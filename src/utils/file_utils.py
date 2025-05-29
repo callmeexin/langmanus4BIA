@@ -7,10 +7,10 @@ from typing import Dict, List
 
 from fastapi import UploadFile
 
-from src.config.config import DEFAULT_STORAGE
+from src.config.config import DEFAULT_WORK
 
 
-async def save_file(session_id: str, file: UploadFile, storage_path: Path = DEFAULT_STORAGE) -> dict:
+async def save_file(session_id: str, file: UploadFile, storage_path: Path = DEFAULT_WORK) -> dict:
     """
     Save an uploaded file to the specified storage location.
 
@@ -40,7 +40,7 @@ async def save_file(session_id: str, file: UploadFile, storage_path: Path = DEFA
         "size": file_size
     }
 
-def get_file_path(session_id: str, task_id: str, filename: str, storage_path: Path = DEFAULT_STORAGE) -> Path | None:
+def get_file_path(session_id: str, task_id: str, filename: str, storage_path: Path = DEFAULT_WORK) -> Path | None:
     """
     Get the full path to a file based on session, task, and filename.
 
@@ -114,7 +114,7 @@ def get_language_from_extension(filename: str) -> str:
     ext = os.path.splitext(filename)[1].lower()
     return extension_map.get(ext, 'Unknown')
 
-def list_files_in_task(session_id: str, task_id: str, storage_path: Path = DEFAULT_STORAGE) -> Dict[str, List[Dict]]:
+def list_files_in_task(session_id: str, task_id: str, storage_path: Path = DEFAULT_WORK) -> Dict[str, List[Dict]]:
     """
     List files in a task directory with detailed information including name, language, size, and content.
     Files are categorized into codes, figures, and results.

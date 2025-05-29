@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import List
 
 
-from src.config.config import DEFAULT_STORAGE
+from src.config.config import DEFAULT_WORK
 from src.database import SessionLocal, engine
 from src.entity.entity import FileMetadata as DBFileMetadata
 from src.schema.schemas import HttpResponse, ChatRequest
@@ -54,7 +54,7 @@ DBFileMetadata.metadata.create_all(bind=engine)
 async def upload_files(
         session_id: str = Form(),
         files: List[UploadFile] = File(...),
-        storage_path: str = str(DEFAULT_STORAGE)
+        storage_path: str = str(DEFAULT_WORK)
 ):
     """Upload multiple files and store their metadata in database.
 
@@ -239,7 +239,7 @@ async def get_image(img_path: str) -> FileResponse:
     if not img_path or '../' in img_path:
         raise HTTPException(status_code=400, detail="Invalid image path")
 
-    image_abs_path = os.path.join(str(DEFAULT_STORAGE), img_path)
+    image_abs_path = os.path.join(str(DEFAULT_WORK), img_path)
 
     # Verify file exists
     if not os.path.isfile(image_abs_path):
@@ -294,7 +294,7 @@ async def chat_endpoint(request: ChatRequest, req: Request):
                     request.deep_thinking_mode,
                     request.search_before_planning,
                     request.team_members,
-                    request.thread_id,
+                    request.session_id,
                 ):
                     # Check if client is still connected
                     if await req.is_disconnected():

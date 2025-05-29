@@ -37,8 +37,8 @@ class ChatRequest(BaseModel):
         False, description="Whether to search before planning"
     )
     team_members: Optional[list] = Field(None, description="enabled team members")
-    thread_id: Optional[str] = Field(
-        "default", description="a specifc conversation identifier"
+    session_id: Optional[str] = Field(
+        "default", description="Distinguish between different conversations"
     )
 
 

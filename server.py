@@ -17,7 +17,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 find_and_add_target_path()
-logger.info(sys.path)
 
 if __name__ == "__main__":
     logger.info("Starting BiaGhosterCoder API server")

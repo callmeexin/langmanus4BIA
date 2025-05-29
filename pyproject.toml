@@ -41,6 +41,7 @@ dependencies = [
     "dotenv>=0.9.9",
     "fastapi-offline>=1.7.3",
     "python-multipart>=0.0.20",
+    "unstructured>=0.17.2",
 ]
 
 [project.optional-dependencies]

@@ -2,8 +2,7 @@
 
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-STORAGE_DIR = BASE_DIR / "storage"
-DEFAULT_STORAGE = STORAGE_DIR / "default"
+BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
+DEFAULT_WORK = BASE_DIR / "work"
 
-DEFAULT_STORAGE.mkdir(parents=True, exist_ok=True)
+DEFAULT_WORK.mkdir(parents=True, exist_ok=True)
