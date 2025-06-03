@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: langmanus-backend
+    container_name: BIA-Ghostcoder-backend
     ports:
       - "8000:8000"
     environment:
@@ -14,15 +14,15 @@ services:
       - .env
     restart: unless-stopped
     networks:
-      - langmanus-network
+      - BIA-Ghostcoder-network
 
   frontend:
     build:
-      context: https://github.com/langmanus/langmanus-web.git#main
+      context: https://github.com/BIA-Ghostcoder/BIA-Ghostcoder-web.git#main
       dockerfile: Dockerfile
       args:
         - NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
-    container_name: langmanus-frontend
+    container_name: BIA-Ghostcoder-frontend
     ports:
       - "3000:3000"
     environment:
@@ -31,8 +31,8 @@ services:
       - backend
     restart: unless-stopped
     networks:
-      - langmanus-network
+      - BIA-Ghostcoder-network
 
 networks:
-  langmanus-network:
+  BIA-Ghostcoder-network:
     driver: bridge

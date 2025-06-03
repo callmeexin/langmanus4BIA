@@ -79,8 +79,16 @@ def code_node(state: State) -> Command[Literal["supervisor"]]:
 async def ghostcoder_node(state: State) -> Command[Literal["supervisor"]]:
     """Node for the GhostCoder agent that generate and execute bioinformatics code in python, R and more."""
     logger.info("GhostCoder agent starting task")
-    result = await ghostcoder_agent.ainvoke(state)
+    # Parse ghostcoder inputs
+    input_state = {
+        **state,
+        "task_description": state['messages'][-1].content,
+        "previous_codeblock": ""
+    }
+
+    result = await ghostcoder_agent.ainvoke(input_state)
     logger.info("GhostCoder agent completed task")
+    # Parse ghostcoder output
     response_content = result["task_result"]
     # 尝试修复可能的JSON输出
     response_content = repair_json_output(response_content)

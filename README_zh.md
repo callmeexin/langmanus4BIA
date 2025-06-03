@@ -2,7 +2,7 @@
 
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![WeChat](https://img.shields.io/badge/WeChat-Langmanus-brightgreen?logo=wechat&logoColor=white)](./assets/wechat_community.jpg)
+[![WeChat](https://img.shields.io/badge/WeChat-BIA-Ghostcoder-brightgreen?logo=wechat&logoColor=white)](./assets/wechat_community.jpg)
 [![Discord Follow](https://dcbadge.vercel.app/api/server/m3MszDcn?style=flat)](https://discord.gg/m3MszDcn)
 
 [English](./README.md) | [简体中文](./README_zh.md) | [日本語](./README_ja.md)
@@ -15,7 +15,7 @@ BiaGhosterCoder 是一个社区驱动的 AI 自动化框架，它建立在开源
 
 **Task**: Calculate the influence index of DeepSeek R1 on HuggingFace. This index can be designed by considering a weighted sum of factors such as followers, downloads, and likes.
 
-**LangManus的全自动计划与解决方案**:
+**BIA-Ghostcoder的全自动计划与解决方案**:
 
 1. **收集最新信息**  
    通过在线搜索获取关于"DeepSeek R1"、"HuggingFace"以及相关主题的最新信息。
@@ -46,7 +46,7 @@ BiaGhosterCoder 是一个社区驱动的 AI 自动化框架，它建立在开源
 - [项目声明](#项目声明)
 - [架构](#架构)
 - [功能特性](#功能特性)
-- [为什么选择 BiaGhosterCoder？](#为什么选择-langmanus)
+- [为什么选择 BiaGhosterCoder？](#为什么选择-BIA-Ghostcoder)
 - [安装设置](#安装设置)
     - [前置要求](#前置要求)
     - [安装步骤](#安装步骤)
@@ -64,8 +64,8 @@ BiaGhosterCoder 是一个社区驱动的 AI 自动化框架，它建立在开源
 
 ```bash
 # 克隆仓库
-git clone https://github.com/langmanus/langmanus.git
-cd langmanus
+git clone https://github.com/BIA-Ghostcoder/BIA-Ghostcoder.git
+cd BIA-Ghostcoder
 
 # 安装依赖
 uv sync
@@ -342,22 +342,22 @@ BiaGhosterCoder 在 `src/prompts` 目录中使用复杂的提示系统来定义�
 BiaGhosterCoder 可以运行在 Docker 容器中。默认情况下，API 服务器在端口 8000 上运行。
 
 ```bash
-docker build -t langmanus .
-docker run --name langmanus -d --env-file .env -e CHROME_HEADLESS=True -p 8000:8000 langmanus
+docker build -t BIA-Ghostcoder .
+docker run --name BIA-Ghostcoder -d --env-file .env -e CHROME_HEADLESS=True -p 8000:8000 BIA-Ghostcoder
 ```
 
 你也可以直接用 Docker 运行 CLI：
 
 ```bash
-docker build -t langmanus .
-docker run --rm -it --env-file .env -e CHROME_HEADLESS=True langmanus uv run python main.py
+docker build -t BIA-Ghostcoder .
+docker run --rm -it --env-file .env -e CHROME_HEADLESS=True BIA-Ghostcoder uv run python main.py
 ```
 
 ## 网页界面
 
 BiaGhosterCoder 提供一个默认的网页界面。
 
-请参考 [langmanus/langmanus-web](https://github.com/langmanus/langmanus-web) 项目了解更多信息。
+请参考 [BIA-Ghostcoder/BIA-Ghostcoder-web](https://github.com/BIA-Ghostcoder/BIA-Ghostcoder-web) 项目了解更多信息。
 
 ## Docker Compose (包括前后端)
 
@@ -419,7 +419,7 @@ make format
 
 ## Star 趋势
 
-[![Star History Chart](https://api.star-history.com/svg?repos=langmanus/langmanus&type=Date)](https://www.star-history.com/#langmanus/langmanus&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=BIA-Ghostcoder/BIA-Ghostcoder&type=Date)](https://www.star-history.com/#BIA-Ghostcoder/BIA-Ghostcoder&Date)
 
 ## 致谢
 

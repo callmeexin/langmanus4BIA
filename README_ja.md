@@ -2,14 +2,14 @@
 
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![WeChat](https://img.shields.io/badge/WeChat-Langmanus-brightgreen?logo=wechat&logoColor=white)](./assets/wechat_community.jpg)
+[![WeChat](https://img.shields.io/badge/WeChat-BIA-Ghostcoder-brightgreen?logo=wechat&logoColor=white)](./assets/wechat_community.jpg)
 [![Discord Follow](https://dcbadge.vercel.app/api/server/m3MszDcn?style=flat)](https://discord.gg/m3MszDcn)
 
 [English](./README.md) | [简体中文](./README_zh.md) | [日本語](./README_ja.md)
 
 > オープンソースから来て、オープンソースに戻る
 
-LangManusは、オープンソースコミュニティの素晴らしい仕事に基づいて構築された、コミュニティ主導のAI自動化フレームワークです。私たちの目標は、言語モデルをウェブ検索、クロール、Pythonコードの実行などの専門ツールと組み合わせることです。
+BIA-Ghostcoderは、オープンソースコミュニティの素晴らしい仕事に基づいて構築された、コミュニティ主導のAI自動化フレームワークです。私たちの目標は、言語モデルをウェブ検索、クロール、Pythonコードの実行などの専門ツールと組み合わせることです。
 
 ## デモビデオ
 
@@ -25,7 +25,7 @@ LangManusは、オープンソースコミュニティの素晴らしい仕事�
 - [プロジェクト声明](#プロジェクト声明)
 - [アーキテクチャ](#アーキテクチャ)
 - [機能](#機能)
-- [なぜLangManusなのか？](#なぜlangmanusなのか)
+- [なぜBIA-Ghostcoderなのか？](#なぜBIA-Ghostcoderなのか)
 - [セットアップ](#セットアップ)
     - [前提条件](#前提条件)
     - [インストール](#インストール)
@@ -43,8 +43,8 @@ LangManusは、オープンソースコミュニティの素晴らしい仕事�
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/langmanus/langmanus.git
-cd langmanus
+git clone https://github.com/BIA-Ghostcoder/BIA-Ghostcoder.git
+cd BIA-Ghostcoder
 
 # 依存関係をインストール
 uv sync
@@ -73,7 +73,7 @@ uv run main.py
 
 ## アーキテクチャ
 
-LangManusは、スーパーバイザーが専門のエージェントを調整して複雑なタスクを達成する階層型マルチエージェントシステムを実装しています。
+BIA-Ghostcoderは、スーパーバイザーが専門のエージェントを調整して複雑なタスクを達成する階層型マルチエージェントシステムを実装しています。
 
 ![BiaGhosterCoder Architecture](./assets/architecture.png)
 
@@ -118,7 +118,7 @@ LangManusは、スーパーバイザーが専門のエージェントを調整�
     - マルチエージェントのオーケストレーション
     - タスクの委任と監視
 
-## なぜLangManusなのか？
+## なぜBIA-Ghostcoderなのか？
 
 私たちはオープンソースの協力の力を信じています。このプロジェクトは、次のような素晴らしいプロジェクトの仕事なしには実現できませんでした。
 
@@ -138,7 +138,7 @@ LangManusは、スーパーバイザーが専門のエージェントを調整�
 
 ### インストール
 
-LangManusは、依存関係の管理を簡素化するために[uv](https://github.com/astral-sh/uv)を利用しています。
+BIA-Ghostcoderは、依存関係の管理を簡素化するために[uv](https://github.com/astral-sh/uv)を利用しています。
 以下の手順に従って、仮想環境を設定し、必要な依存関係をインストールします。
 
 ```bash
@@ -156,7 +156,7 @@ uv sync
 
 ### 設定
 
-LangManusは3層のLLMシステムを使用しており、それぞれ推論、基本タスク、および視覚言語タスクに用いられます。プロジェクトのルートディレクトリにある`conf.yaml`を使って設定を行います。`conf.yaml.example`を`conf.yaml`にコピーして設定を始めることができます：
+BIA-Ghostcoderは3層のLLMシステムを使用しており、それぞれ推論、基本タスク、および視覚言語タスクに用いられます。プロジェクトのルートディレクトリにある`conf.yaml`を使って設定を行います。`conf.yaml.example`を`conf.yaml`にコピーして設定を始めることができます：
 ```bash
 cp conf.yaml.example conf.yaml
 ```
@@ -216,7 +216,7 @@ CHROME_PROXY_PASSWORD=  # オプション、デフォルトは None
 
 ### プリコミットフックの設定
 
-LangManusには、各コミット前にリントとフォーマットチェックを実行するプリコミットフックが含まれています。設定するには：
+BIA-Ghostcoderには、各コミット前にリントとフォーマットチェックを実行するプリコミットフックが含まれています。設定するには：
 
 1. プリコミットスクリプトを実行可能にする：
 
@@ -241,7 +241,7 @@ ln -s ../../pre-commit .git/hooks/pre-commit
 
 ### 基本的な実行
 
-デフォルト設定でLangManusを実行するには：
+デフォルト設定でBIA-Ghostcoderを実行するには：
 
 ```bash
 uv run main.py
@@ -249,7 +249,7 @@ uv run main.py
 
 ### APIサーバー
 
-LangManusは、ストリーミングサポートを備えたFastAPIベースのAPIサーバーを提供します。
+BIA-Ghostcoderは、ストリーミングサポートを備えたFastAPIベースのAPIサーバーを提供します。
 
 ```bash
 # APIサーバーを起動
@@ -273,7 +273,7 @@ APIサーバーは次のエンドポイントを公開します：
 
 ### 高度な設定
 
-LangManusは、`src/config`ディレクトリ内のさまざまな設定ファイルを通じてカスタマイズできます。
+BIA-Ghostcoderは、`src/config`ディレクトリ内のさまざまな設定ファイルを通じてカスタマイズできます。
 
 - `env.py`: LLMモデル、APIキー、およびベースURLを設定
 - `tools.py`: ツール固有の設定を調整（例：Tavily検索結果の制限）
@@ -281,7 +281,7 @@ LangManusは、`src/config`ディレクトリ内のさまざまな設定ファ�
 
 ### エージェントプロンプトシステム
 
-LangManusは、`src/prompts`ディレクトリ内の高度なプロンプトシステムを使用して、エージェントの動作と責任を定義します。
+BIA-Ghostcoderは、`src/prompts`ディレクトリ内の高度なプロンプトシステムを使用して、エージェントの動作と責任を定義します。
 
 #### コアエージェントの役割
 
@@ -314,31 +314,31 @@ LangManusは、`src/prompts`ディレクトリ内の高度なプロンプトシ�
 
 ## Docker
 
-LangManusはDockerコンテナで実行できます。デフォルトではポート8000でAPIを提供します。
+BIA-GhostcoderはDockerコンテナで実行できます。デフォルトではポート8000でAPIを提供します。
 
 Dockerを実行する前に、`.env`ファイルに環境変数を準備する必要があります。
 
 ```bash
-docker build -t langmanus .
-docker run --name langmanus -d --env-file .env -e CHROME_HEADLESS=True -p 8000:8000 langmanus
+docker build -t BIA-Ghostcoder .
+docker run --name BIA-Ghostcoder -d --env-file .env -e CHROME_HEADLESS=True -p 8000:8000 BIA-Ghostcoder
 ```
 
 CLIをDockerで実行することもできます。
 
 ```bash
-docker build -t langmanus .
-docker run --rm -it --env-file .env -e CHROME_HEADLESS=True langmanus uv run python main.py
+docker build -t BIA-Ghostcoder .
+docker run --rm -it --env-file .env -e CHROME_HEADLESS=True BIA-Ghostcoder uv run python main.py
 ```
 
 ## Web UI
 
-LangManusはデフォルトのWeb UIを提供します。
+BIA-GhostcoderはデフォルトのWeb UIを提供します。
 
-詳細については、[langmanus/langmanus-web-ui](https://github.com/langmanus/langmanus-web)プロジェクトを参照してください。
+詳細については、[BIA-Ghostcoder/BIA-Ghostcoder-web-ui](https://github.com/BIA-Ghostcoder/BIA-Ghostcoder-web)プロジェクトを参照してください。
 
 ## Docker Compose (バックエンドとフロントエンドを含む)
 
-LangManusは、バックエンドとフロントエンドの両方を簡単に実行するためのdocker-compose設定を提供しています：
+BIA-Ghostcoderは、バックエンドとフロントエンドの両方を簡単に実行するためのdocker-compose設定を提供しています：
 
 ```bash
 # バックエンドとフロントエンドを起動
@@ -349,7 +349,7 @@ docker-compose up -d
 ```
 
 これにより：
-1. LangManusバックエンドコンテナをビルドして起動
+1. BIA-Ghostcoderバックエンドコンテナをビルドして起動
 2. BiaGhosterCoder Web UIコンテナをビルドして起動
 3. 共有ネットワークを使用してそれらを接続
 
@@ -396,15 +396,15 @@ make format
 
 ## 謝辞
 
-LangManusを可能にするすべてのオープンソースプロジェクトと貢献者に特別な感謝を捧げます。私たちは巨人の肩の上に立っています。
+BIA-Ghostcoderを可能にするすべてのオープンソースプロジェクトと貢献者に特別な感謝を捧げます。私たちは巨人の肩の上に立っています。
 
 特に以下のプロジェクトに深い感謝を表します：
 - [LangChain](https://github.com/langchain-ai/langchain)：私たちのLLM相互作用とチェーンを支える優れたフレームワーク
 - [LangGraph](https://github.com/langchain-ai/langgraph)：洗練されたマルチエージェントオーケストレーションを実現
 - [Browser-use](https://pypi.org/project/browser-use/)：ブラウザ制御を提供
 
-これらの素晴らしいプロジェクトはLangManusの基盤を形成し、オープンソースコラボレーションの力を示しています。
+これらの素晴らしいプロジェクトはBIA-Ghostcoderの基盤を形成し、オープンソースコラボレーションの力を示しています。
 
 ## スター履歴
 
-[![Star History Chart](https://api.star-history.com/svg?repos=langmanus/langmanus&type=Date)](https://www.star-history.com/#langmanus/langmanus&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=BIA-Ghostcoder/BIA-Ghostcoder&type=Date)](https://www.star-history.com/#BIA-Ghostcoder/BIA-Ghostcoder&Date)

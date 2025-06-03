@@ -2,7 +2,7 @@
 
 ## 目录
 
-- [BiaGhosterCoder 支持哪些模型？](#langmanus-支持哪些模型)
+- [BiaGhosterCoder 支持哪些模型？](#BIA-Ghostcoder-支持哪些模型)
 - [如何部署 Web UI 前端项目？](#如何部署-web-ui-前端项目)
 - [可以用本地的 Chrome 浏览器作为 Browser Tool 吗？](#可以用本地的-chrome-浏览器作为-browser-tool-吗)
 
@@ -24,7 +24,7 @@
 
 ### 如何切换模型？
 
-您可以通过修改项目根目录下的 `conf.yaml` 文件使用litellm格式的配置来切换所使用的模型。具体配置方法请参考 [README.md](https://github.com/langmanus/langmanus/blob/main/README.md)。
+您可以通过修改项目根目录下的 `conf.yaml` 文件使用litellm格式的配置来切换所使用的模型。具体配置方法请参考 [README.md](https://github.com/BIA-Ghostcoder/BIA-Ghostcoder/blob/main/README.md)。
 
 ---
 
@@ -119,14 +119,14 @@ REASONING_MODEL:
 
 ## 如何部署 Web UI 前端项目？
 
-BiaGhosterCoder 提供了一个开箱即用的 Web UI 前端项目，您可以通过以下步骤完成部署。请访问 [BiaGhosterCoder Web UI GitHub 仓库](https://github.com/langmanus/langmanus-web) 获取更多信息。
+BiaGhosterCoder 提供了一个开箱即用的 Web UI 前端项目，您可以通过以下步骤完成部署。请访问 [BiaGhosterCoder Web UI GitHub 仓库](https://github.com/BIA-Ghostcoder/BIA-Ghostcoder-web) 获取更多信息。
 
 ### 步骤 1：启动 BiaGhosterCoder 的后端服务
 
 首先，确保您已经克隆并安装了 BiaGhosterCoder 的后端项目。进入后端项目目录并启动服务：
 
 ```bash
-cd langmanus
+cd BIA-Ghostcoder
 make serve
 ```
 
@@ -139,8 +139,8 @@ make serve
 接下来，克隆 BiaGhosterCoder 的 Web UI 前端项目并安装依赖：
 
 ```bash
-git clone https://github.com/langmanus/langmanus-web.git
-cd langmanus-web
+git clone https://github.com/BIA-Ghostcoder/BIA-Ghostcoder-web.git
+cd BIA-Ghostcoder-web
 pnpm install
 ```
 

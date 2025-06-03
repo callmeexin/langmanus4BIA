@@ -18,8 +18,8 @@ There are many ways you can contribute to BiaGhosterCoder:
 1. Fork the repository
 2. Clone your fork:
    ```bash
-   git clone https://github.com/your-username/langmanus.git
-   cd langmanus
+   git clone https://github.com/your-username/BIA-Ghostcoder.git
+   cd BIA-Ghostcoder
    ```
 3. Set up your development environment:
    ```bash

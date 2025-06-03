@@ -102,8 +102,6 @@ def get_files_by_task_id(session_id: str, task_id: str):
     Returns:
         FileListResponse containing list of files
     """
-    session_id = "session_id"
-    task_id = "task_id"
     result = list_files_in_task(session_id, task_id)
     return HttpResponse.success(result)
 

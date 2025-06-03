@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [Which models does BiaGhosterCoder support?](#which-models-does-langmanus-support)
+- [Which models does BiaGhosterCoder support?](#which-models-does-BIA-Ghostcoder-support)
 - [How to deploy the Web UI frontend project?](#how-to-deploy-the-web-ui-frontend-project)
 - [Can I use my local Chrome browser as the Browser Tool?](#can-i-use-my-local-chrome-browser-as-the-browser-tool)
 
@@ -23,7 +23,7 @@ In BiaGhosterCoder, we categorize models into three types:
 - **Supported Models**: `gpt-4o`, `qwen2.5-vl-72b-instruct`, `gemini-2.0-flash`.
 
 ### How to switch models?
-You can switch the model in use by modifying the `conf.yaml` file in the root directory of the project, using the configuration in the litellm format. For the specific configuration method, please refer to [README.md](https://github.com/langmanus/langmanus/blob/main/README.md).
+You can switch the model in use by modifying the `conf.yaml` file in the root directory of the project, using the configuration in the litellm format. For the specific configuration method, please refer to [README.md](https://github.com/BIA-Ghostcoder/BIA-Ghostcoder/blob/main/README.md).
 
 ---
 
@@ -116,14 +116,14 @@ REASONING_MODEL:
 
 ## How to deploy the Web UI frontend project?
 
-BiaGhosterCoder provides an out-of-the-box Web UI frontend project. You can complete the deployment through the following steps. Please visit the [BiaGhosterCoder Web UI GitHub repository](https://github.com/langmanus/langmanus-web) for more information.
+BiaGhosterCoder provides an out-of-the-box Web UI frontend project. You can complete the deployment through the following steps. Please visit the [BiaGhosterCoder Web UI GitHub repository](https://github.com/BIA-Ghostcoder/BIA-Ghostcoder-web) for more information.
 
 ### Step 1: Start the BiaGhosterCoder backend service
 
 First, ensure you have cloned and installed the BiaGhosterCoder backend project. Enter the backend project directory and start the service:
 
 ```bash
-cd langmanus
+cd BIA-Ghostcoder
 make serve
 ```
 
@@ -136,8 +136,8 @@ By default, the BiaGhosterCoder backend service will run on `http://localhost:80
 Next, clone the BiaGhosterCoder Web UI frontend project and install dependencies:
 
 ```bash
-git clone https://github.com/langmanus/langmanus-web.git
-cd langmanus-web
+git clone https://github.com/BIA-Ghostcoder/BIA-Ghostcoder-web.git
+cd BIA-Ghostcoder-web
 pnpm install
 ```
 

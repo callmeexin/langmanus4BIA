@@ -1,12 +1,12 @@
 # 🦜🤖 BiaGhosterCoder
 
-> ⚠️ The original [BiaGhosterCoder](https://github.com/langmanus/langmanus) repository is no longer accessible.
+> ⚠️ The original [BiaGhosterCoder](https://github.com/BIA-Ghostcoder/BIA-Ghostcoder) repository is no longer accessible.
 > I truly loved its elegant design, so this fork aims to keep the spirit of the project alive. Let’s keep this great work going!🚀
 ------
 
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![WeChat](https://img.shields.io/badge/WeChat-Langmanus-brightgreen?logo=wechat&logoColor=white)](./assets/wechat_community.jpg)
+[![WeChat](https://img.shields.io/badge/WeChat-BIA-Ghostcoder-brightgreen?logo=wechat&logoColor=white)](./assets/wechat_community.jpg)
 [![Discord Follow](https://dcbadge.vercel.app/api/server/m3MszDcn?style=flat)](https://discord.gg/m3MszDcn)
 
 [English](./README.md) | [简体中文](./README_zh.md) | [日本語](./README_ja.md)
@@ -36,7 +36,7 @@ BiaGhosterCoder is a community-driven AI automation framework that builds upon t
 - [Project Statement](#project-statement)
 - [Architecture](#architecture)
 - [Features](#features)
-- [Why BiaGhosterCoder?](#why-langmanus)
+- [Why BiaGhosterCoder?](#why-BIA-Ghostcoder)
 - [Setup](#setup)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
@@ -341,15 +341,15 @@ BiaGhosterCoder can be run in a Docker container. default serve api on port 8000
 Before run docker, you need to prepare environment variables in `.env` file.
 
 ```bash
-docker build -t langmanus .
-docker run --name langmanus -d --env-file .env -e CHROME_HEADLESS=True -p 8000:8000 langmanus
+docker build -t BIA-Ghostcoder .
+docker run --name BIA-Ghostcoder -d --env-file .env -e CHROME_HEADLESS=True -p 8000:8000 BIA-Ghostcoder
 ```
 
 You can also just run the cli with docker.
 
 ```bash
-docker build -t langmanus .
-docker run --rm -it --env-file .env -e CHROME_HEADLESS=True langmanus uv run python main.py
+docker build -t BIA-Ghostcoder .
+docker run --rm -it --env-file .env -e CHROME_HEADLESS=True BIA-Ghostcoder uv run python main.py
 ```
 
 ## Web UI
@@ -418,7 +418,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=langmanus/langmanus&type=Date)](https://www.star-history.com/#langmanus/langmanus&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=BIA-Ghostcoder/BIA-Ghostcoder&type=Date)](https://www.star-history.com/#BIA-Ghostcoder/BIA-Ghostcoder&Date)
 
 ## Acknowledgments
 
